@@ -1,0 +1,29 @@
+{
+  "name": "test-federated-modules",
+  "private": true,
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "serve": "wsrun --parallel serve",
+    "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\""
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "antd": "^4.0.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "style-loader": "^1.1.3",
+    "concurrently": "^5.1.0",
+    "wsrun": "^5.2.0",
+    "raw-loader": "^4.0.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2",
+    "serve": "^11.3.0",
+    "webpack": "git://github.com/webpack/webpack.git#dev-1",
+    "webpack-cli": "^3.3.11"
+  }
+}

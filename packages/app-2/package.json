@@ -1,0 +1,9 @@
+{
+  "name": "app-2",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 3003"
+  }
+}
