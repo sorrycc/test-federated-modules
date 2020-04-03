@@ -25,6 +25,9 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: require.resolve("babel-loader"),
+        exclude: [
+          /node_modules/,
+        ],
         options: {
           presets: [require.resolve("@babel/preset-react")],
           cacheDirectory: false,
@@ -57,7 +60,7 @@ module.exports = {
         react: "./src/react",
         'react-dom': "./src/react-dom"
       },
-      // shared: ["react", "react-dom", "@material-ui/core", "react-router-dom"]
+      // shared: ["react", "react-dom"],
     }),
     // new HtmlWebpackPlugin({
     //   template: "./public/index.html"

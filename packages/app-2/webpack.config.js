@@ -12,7 +12,7 @@ module.exports = {
   },
 
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:3003/",
     pathinfo: true,
   },
 
@@ -25,30 +25,42 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: require.resolve("babel-loader"),
+        exclude: [
+          /node_modules/,
+        ],
         options: {
           presets: [require.resolve("@babel/preset-react")],
           cacheDirectory: false,
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {},
+          },
+        ],
       },
     ]
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "libs",
-      library: { type: "var", name: "app_1" },
+      name: "app-2",
+      library: { type: "var", name: "app_2" },
       filename: "remoteEntry.js",
       remotes: {
-        libs: 'libs',
         // app_02: "app_02",
         // app_03: "app_03"
       },
       exposes: {
+        // antd: "./src/antd",
+        // react: "./src/react",
+        // 'react-dom': "./src/react-dom"
       },
-      shared: ["react", "react-dom"]
+      shared: ["react", "react-dom"],
     }),
-    // new HtmlWebpackPlugin({
-    //   template: "./public/index.html"
-    // })
   ]
 };
